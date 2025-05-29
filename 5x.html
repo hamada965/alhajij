@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>🕌 شركة الحجيج لحجز الفنادق والعمرة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
+    
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      --danger-gradient: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+      --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      --glass-bg: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --shadow-light: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.1);
+      --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 198, 120, 0.3) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1400px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main-header {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-light);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: rotate 10s linear infinite;
+      pointer-events: none;
+    }
+
+    .main-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ffffff, #f0f0f0, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    .section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .section:hover::before {
+      left: 100%;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .section h5 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-control, .form-select {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 12px 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-control:focus, .form-select:focus {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #667eea;
+      box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+      transform: scale(1.02);
+    }
+
+    .btn {
+      border-radius: 15px;
+      padding: 12px 25px;
+      font-weight: 600;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-success {
+      background: var(--success-gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+    }
+
+    .btn-warning {
+      background: var(--warning-gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(250, 112, 154, 0.4);
+    }
+
+    .btn-danger {
+      background: var(--danger-gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    .btn-outline-danger {
+      background: rgba(255, 107, 107, 0.1);
+      border: 2px solid #ff6b6b;
+      color: #ff6b6b;
+    }
+
+    .btn-outline-primary {
+      background: rgba(102, 126, 234, 0.1);
+      border: 2px solid #667eea;
+      color: #667eea;
+    }
+
+    .btn-outline-secondary {
+      background: rgba(108, 117, 125, 0.1);
+      border: 2px solid #6c757d;
+      color: #6c757d;
+    }
+
+    .btn-secondary {
+      background: var(--dark-gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
+    }
+
+    .btn-info {
+      background: linear-gradient(135deg, #17a2b8, #138496);
+      color: white;
+      box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
+    }
+
+    .btn-sm {
+      padding: 8px 15px;
+      font-size: 0.875rem;
+      border-radius: 10px;
+    }
+
+    .table {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow-medium);
+      backdrop-filter: blur(10px);
+    }
+
+    .table th {
+      background: var(--primary-gradient);
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      border: none;
+      padding: 15px;
+    }
+
+    .table td {
+      text-align: center;
+      padding: 12px;
+      border-color: rgba(0, 0, 0, 0.05);
+      font-weight: 500;
+    }
+
+    .table tbody tr {
+      transition: all 0.3s ease;
+    }
+
+    .table tbody tr:hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: scale(1.01);
+    }
+
+    .table-info {
+      background: linear-gradient(135deg, rgba(23, 162, 184, 0.1), rgba(17, 132, 150, 0.1));
+    }
+
+    #customExpenseType {
+      display: none;
+    }
+
+    #detailsSection {
+      animation: fadeInUp 0.5s ease;
+    }
+
+    .floating-action {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+
+    .floating-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--secondary-gradient);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .floating-btn:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 12px 35px rgba(240, 147, 251, 0.6);
+    }
+
+    .card-stat {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .card-stat:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .card-stat .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-stat .stat-label {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 25px;
+      border-radius: 15px;
+      color: white;
+      font-weight: 600;
+      z-index: 2000;
+      transform: translateX(400px);
+      transition: all 0.3s ease;
+    }
+
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    .notification.success {
+      background: var(--success-gradient);
+    }
+
+    .notification.error {
+      background: var(--danger-gradient);
+    }
+
+    @media (max-width: 768px) {
+      .main-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section {
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .gradient-text {
+      background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="main-header">
+    <h1><i class="fas fa-mosque"></i> شركة الحجيج لحجز الفنادق والعمرة</h1>
+    <p class="gradient-text">نظام إدارة شامل للعمليات والعملاء</p>
+  </div>
+
+  <!-- إحصائيات سريعة -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card-stat">
+        <div class="stat-number" id="totalClients">0</div>
+        <div class="stat-label"><i class="fas fa-users"></i> إجمالي العملاء</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card-stat">
+        <div class="stat-number" id="totalRevenue">0</div>
+        <div class="stat-label"><i class="fas fa-coins"></i> إجمالي الإيرادات</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card-stat">
+        <div class="stat-number" id="totalExpenses">0</div>
+        <div class="stat-label"><i class="fas fa-credit-card"></i> إجمالي المصروفات</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card-stat">
+        <div class="stat-number" id="pendingAmount">0</div>
+        <div class="stat-label"><i class="fas fa-clock"></i> المبالغ المعلقة</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- إضافة عميل -->
+  <div class="section">
+    <h5><i class="fas fa-user-plus"></i> إضافة عميل جديد</h5>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-text glass-effect"><i class="fas fa-user"></i></span>
+          <input id="clientName" class="form-control" placeholder="اسم العميل" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-text glass-effect"><i class="fas fa-phone"></i></span>
+          <input id="clientPhone" class="form-control" placeholder="رقم الهاتف" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-text glass-effect"><i class="fas fa-calendar"></i></span>
+          <input id="passportDate" type="date" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="input-group">
+          <span class="input-group-text glass-effect"><i class="fas fa-sticky-note"></i></span>
+          <textarea id="clientNote" class="form-control" placeholder="ملاحظات" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <button id="addClientBtn" class="btn btn-primary w-100">
+          <i class="fas fa-save"></i> حفظ العميل
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- عرض العملاء -->
+  <div class="section">
+    <h5><i class="fas fa-list"></i> قائمة العملاء</h5>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><i class="fas fa-user"></i> الاسم</th>
+            <th><i class="fas fa-phone"></i> الهاتف</th>
+            <th><i class="fas fa-calendar"></i> التاريخ</th>
+            <th><i class="fas fa-info-circle"></i> تفاصيل</th>
+            <th><i class="fas fa-trash"></i> حذف</th>
+          </tr>
+        </thead>
+        <tbody id="clientTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- تفاصيل العميل -->
+  <div class="section" id="detailsSection" style="display:none;">
+    <h5><i class="fas fa-user-circle"></i> تفاصيل العميل: <span id="clientDetailName" class="gradient-text"></span></h5>
+
+    <!-- العمليات -->
+    <div class="glass-effect p-3 rounded mb-4">
+      <h6 class="text-white mb-3"><i class="fas fa-plus-circle"></i> إضافة عملية جديدة</h6>
+      <div class="row g-2">
+        <div class="col-md-3">
+          <div class="input-group">
+            <span class="input-group-text glass-effect"><i class="fas fa-calendar"></i></span>
+            <input id="operationDate" type="date" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-text glass-effect"><i class="fas fa-passport"></i></span>
+            <input id="operationVisaCount" type="number" class="form-control" placeholder="عدد الجوازات" />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-text glass-effect"><i class="fas fa-tag"></i></span>
+            <input id="operationVisaPrice" type="number" class="form-control" placeholder="السعر" />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-text glass-effect"><i class="fas fa-money-bill"></i></span>
+            <input id="operationPaid" type="number" class="form-control" placeholder="المدفوع" />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <select id="operationPayType" class="form-select">
+            <option value="كاش"><i class="fas fa-money-bill"></i> كاش</option>
+            <option value="كي نت"><i class="fas fa-credit-card"></i> كي نت</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <button onclick="addClientOperation()" class="btn btn-success w-100">
+            <i class="fas fa-plus"></i> إضافة عملية
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- جدول العمليات -->
+    <div class="table-responsive">
+      <table class="table" id="operationsTable">
+        <thead>
+          <tr>
+            <th>التاريخ</th>
+            <th>الجوازات</th>
+            <th>السعر</th>
+            <th>الإجمالي</th>
+            <th>المدفوع</th>
+            <th>المتبقي</th>
+            <th>طريقة الدفع</th>
+            <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot class="table-info fw-bold">
+          <tr>
+            <td>الإجمالي</td>
+            <td id="sumCount">0</td>
+            <td>-</td>
+            <td id="sumTotal">0.000</td>
+            <td id="sumPaid">0.000</td>
+            <td id="sumRemain">0.000</td>
+            <td colspan="2"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- دفعات العميل -->
+    <div class="glass-effect p-3 rounded mt-4">
+      <h6 class="text-white mb-3"><i class="fas fa-wallet"></i> تسجيل دفعة إضافية</h6>
+      <div class="row g-2">
+        <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-text glass-effect"><i class="fas fa-calendar"></i></span>
+            <input id="paymentDate" type="date" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-text glass-effect"><i class="fas fa-coins"></i></span>
+            <input id="paymentAmount" type="number" class="form-control" placeholder="المبلغ" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <select id="paymentMethod" class="form-select">
+            <option value="كاش">كاش</option>
+            <option value="كي نت">كي نت</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <button onclick="addClientPayment()" class="btn btn-warning w-100">
+            <i class="fas fa-plus"></i> تسجيل دفعة
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive mt-3">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>التاريخ</th>
+              <th>المبلغ</th>
+              <th>طريقة الدفع</th>
+              <th>حذف</th>
+            </tr>
+          </thead>
+          <tbody id="paymentTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- أزرار العمليات -->
+    <div class="row mt-4 g-2">
+      <div class="col-md-6">
+        <button onclick="printClientReport()" class="btn btn-outline-secondary w-100">
+          <i class="fas fa-print"></i> طباعة تقرير العميل
+        </button>
+      </div>
+      <div class="col-md-6">
+        <button onclick="closeClientDetails()" class="btn btn-secondary w-100">
+          <i class="fas fa-arrow-left"></i> رجوع للقائمة
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- المصروفات -->
+  <div class="section">
+    <h5><i class="fas fa-credit-card"></i> إدارة المصروفات</h5>
+    <div class="row g-2 mb-3">
+      <div class="col-md-3">
+        <div class="input-group">
+          <span class="input-group-text glass-effect"><i class="fas fa-calendar"></i></span>
+          <input type="date" id="expenseDate" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <select id="expenseType" class="form-select" onchange="toggleCustomExpense(this.value)">
+          <option value="مرتبات موظفين">مرتبات موظفين</option>
+          <option value="إيجار المكتب">إيجار المكتب</option>
+          <option value="دفع لشركة العمرة">دفع لشركة العمرة</option>
+          <option value="أخرى">أخرى</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <input type="text" id="customExpenseType" class="form-control" placeholder="نوع المصروف (أخرى)" />
+      </div>
+      <div class="col-md-2">
+        <div class="input-group">
+          <span class="input-group-text glass-effect"><i class="fas fa-coins"></i></span>
+          <input type="number" id="expenseAmount" class="form-control" placeholder="المبلغ" />
+        </div>
+      </div>
+      <div class="col-md-1">
+        <button onclick="addExpense()" class="btn btn-danger w-100">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>التاريخ</th>
+            <th>النوع</th>
+            <th>المبلغ</th>
+            <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTable"></tbody>
+        <tfoot class="table-info fw-bold">
+          <tr>
+            <td colspan="2">إجمالي المصروفات</td>
+            <td id="expenseTotal">0.000</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- التقارير -->
+  <div class="section">
+    <h5><i class="fas fa-chart-line"></i> التقارير والإحصائيات</h5>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <button onclick="printExpensesReport()" class="btn btn-outline-danger w-100">
+          <i class="fas fa-file-alt"></i> تقرير المصروفات
+        </button>
+      </div>
+      <div class="col-md-6">
+        <button onclick="printClientsWithBalance()" class="btn btn-outline-primary w-100">
+          <i class="fas fa-exclamation-triangle"></i> العملاء المتأخرين
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- زر عائم -->
+<div class="floating-action">
+  <button class="floating-btn" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</div>
+
+<script>
+let clients = JSON.parse(localStorage.getItem("clients") || "[]");
+let expenses = JSON.parse(localStorage.getItem("expenses") || "[]");
+let selectedClientIndex = null;
+
+function saveClients() {
+  localStorage.setItem("clients", JSON.stringify(clients));
+  updateStats();
+}
+
+function saveExpenses() {
+  localStorage.setItem("expenses", JSON.stringify(expenses));
+  updateStats();
+}
+
+function updateStats() {
+  const totalClients = clients.length;
+  let totalRevenue = 0;
+  let pendingAmount = 0;
+  
+  clients.forEach(client => {
+    const operationsTotal = client.operations.reduce((sum, op) => sum + op.total, 0);
+    const operationsPaid = client.operations.reduce((sum, op) => sum + op.paid, 0);
+    const extraPayments = (client.payments || []).reduce((sum, p) => sum + p.amount, 0);
+    const totalPaid = operationsPaid + extraPayments;
+    
+    totalRevenue += totalPaid;
+    pendingAmount += Math.max(0, operationsTotal - totalPaid);
+  });
+
+  const totalExpenses = expenses.reduce((sum, exp) => sum + exp.amount, 0);
+
+  document.getElementById('totalClients').textContent = totalClients;
+  document.getElementById('totalRevenue').textContent = totalRevenue.toFixed(3);
+  document.getElementById('totalExpenses').textContent = totalExpenses.toFixed(3);
+  document.getElementById('pendingAmount').textContent = pendingAmount.toFixed(3);
+}
+
+function showNotification(message, type = 'success') {
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => notification.classList.add('show'), 100);
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => document.body.removeChild(notification), 300);
+  }, 3000);
+}
+
+function toggleCustomExpense(value) {
+  document.getElementById("customExpenseType").style.display = value === "أخرى" ? "block" : "none";
+}
+
+function addClient() {
+  const name = clientName.value.trim();
+  const phone = clientPhone.value.trim();
+  const date = passportDate.value;
+  const note = clientNote.value.trim();
+  
+  if (!name || !phone || !date) {
+    showNotification("يرجى تعبئة جميع الحقول المطلوبة", "error");
+    return;
+  }
+  
+  clients.push({ name, phone, date, note, operations: [], payments: [] });
+  saveClients();
+  renderClients();
+  clientName.value = clientPhone.value = passportDate.value = clientNote.value = "";
+  showNotification("تم إضافة العميل بنجاح");
+}
+
+function renderClients() {
+  clientTable.innerHTML = "";
+  clients.forEach((c, i) => {
+    const totalOperations = c.operations.reduce((sum, op) => sum + op.total, 0);
+    const totalPaid = c.operations.reduce((sum, op) => sum + op.paid, 0) + 
+                     (c.payments || []).reduce((sum, p) => sum + p.amount, 0);
+    const remaining = totalOperations - totalPaid;
+    
+    clientTable.innerHTML += `
+      <tr class="${remaining > 0 ? 'table-warning' : ''}">
+        <td><strong>${c.name}</strong></td>
+        <td><i class="fas fa-phone"></i> ${c.phone}</td>
+        <td>${c.date}</td>
+        <td><button onclick="viewClientDetails(${i})" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button></td>
+        <td><button onclick="deleteClient(${i})" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
+      </tr>`;
+  });
+}
+
+function deleteClient(i) {
+  if (confirm("هل تريد حذف العميل نهائياً؟")) {
+    clients.splice(i, 1);
+    saveClients();
+    renderClients();
+    closeClientDetails();
+    showNotification("تم حذف العميل بنجاح");
+  }
+}
+
+function viewClientDetails(i) {
+  selectedClientIndex = i;
+  clientDetailName.textContent = clients[i].name;
+  detailsSection.style.display = "block";
+  detailsSection.scrollIntoView({ behavior: 'smooth' });
+  renderClientOperations();
+}
+
+function closeClientDetails() {
+  detailsSection.style.display = "none";
+  selectedClientIndex = null;
+}
+
+function addClientOperation() {
+  const date = operationDate.value;
+  const count = +operationVisaCount.value;
+  const price = +operationVisaPrice.value;
+  const paid = +operationPaid.value;
+  const method = operationPayType.value;
+  
+  if (!date || isNaN(count) || isNaN(price) || isNaN(paid)) {
+    showNotification("يرجى إدخال بيانات صحيحة", "error");
+    return;
+  }
+  
+  const total = count * price;
+  const remain = total - paid;
+  clients[selectedClientIndex].operations.push({ date, count, price, total, paid, remain, method });
+  saveClients();
+  renderClientOperations();
+  operationDate.value = operationVisaCount.value = operationVisaPrice.value = operationPaid.value = "";
+  showNotification("تم إضافة العملية بنجاح");
+}
+
+function renderClientOperations() {
+  const ops = clients[selectedClientIndex].operations || [];
+  const pays = clients[selectedClientIndex].payments || [];
+  const tbody = operationsTable.querySelector("tbody");
+  tbody.innerHTML = "";
+  
+  let sumCount = 0, sumTotal = 0, sumPaid = 0;
+  
+  ops.forEach((op, i) => {
+    sumCount += op.count;
+    sumTotal += op.total;
+    sumPaid += op.paid;
+    tbody.innerHTML += `
+      <tr>
+        <td>${op.date}</td>
+        <td><span class="badge bg-primary">${op.count}</span></td>
+        <td>${op.price.toFixed(3)}</td>
+        <td><strong>${op.total.toFixed(3)}</strong></td>
+        <td class="text-success">${op.paid.toFixed(3)}</td>
+        <td class="text-danger">${op.remain.toFixed(3)}</td>
+        <td><span class="badge bg-info">${op.method}</span></td>
+        <td><button onclick="deleteClientOperation(${i})" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
+      </tr>`;
+  });
+  
+  const extraPaid = pays.reduce((s, p) => s + p.amount, 0);
+  document.getElementById("sumCount").textContent = sumCount;
+  document.getElementById("sumTotal").textContent = sumTotal.toFixed(3);
+  document.getElementById("sumPaid").textContent = (sumPaid + extraPaid).toFixed(3);
+  document.getElementById("sumRemain").textContent = (sumTotal - sumPaid - extraPaid).toFixed(3);
+  
+  renderClientPayments();
+  renderClients();
+}
+
+function deleteClientOperation(i) {
+  if (confirm("هل تريد حذف هذه العملية؟")) {
+    clients[selectedClientIndex].operations.splice(i, 1);
+    saveClients();
+    renderClientOperations();
+    showNotification("تم حذف العملية بنجاح");
+  }
+}
+
+function addClientPayment() {
+  const date = paymentDate.value;
+  const amount = +paymentAmount.value;
+  const method = paymentMethod.value;
+  
+  if (!date || isNaN(amount)) {
+    showNotification("يرجى إدخال بيانات الدفع بشكل صحيح", "error");
+    return;
+  }
+  
+  clients[selectedClientIndex].payments.push({ date, amount, method });
+  saveClients();
+  renderClientOperations();
+  paymentDate.value = paymentAmount.value = "";
+  showNotification("تم تسجيل الدفعة بنجاح");
+}
+
+function renderClientPayments() {
+  const pays = clients[selectedClientIndex].payments || [];
+  paymentTable.innerHTML = "";
+  pays.forEach((p, i) => {
+    paymentTable.innerHTML += `
+      <tr>
+        <td>${p.date}</td>
+        <td class="text-success"><strong>${p.amount.toFixed(3)}</strong></td>
+        <td><span class="badge bg-warning">${p.method}</span></td>
+        <td><button onclick="deleteClientPayment(${i})" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
+      </tr>`;
+  });
+}
+
+function deleteClientPayment(i) {
+  if (confirm("هل تريد حذف هذه الدفعة؟")) {
+    clients[selectedClientIndex].payments.splice(i, 1);
+    saveClients();
+    renderClientOperations();
+    showNotification("تم حذف الدفعة بنجاح");
+  }
+}
+
+function addExpense() {
+  const date = expenseDate.value;
+  const type = expenseType.value === "أخرى" ? customExpenseType.value.trim() : expenseType.value;
+  const amount = +expenseAmount.value;
+  
+  if (!date || !type || isNaN(amount)) {
+    showNotification("يرجى تعبئة بيانات المصروف بشكل صحيح", "error");
+    return;
+  }
+  
+  expenses.push({ date, type, amount });
+  saveExpenses();
+  renderExpenses();
+  expenseDate.value = expenseAmount.value = customExpenseType.value = "";
+  expenseType.value = "مرتبات موظفين";
+  toggleCustomExpense("");
+  showNotification("تم إضافة المصروف بنجاح");
+}
+
+function renderExpenses() {
+  let total = 0;
+  expenseTable.innerHTML = "";
+  expenses.forEach((e, i) => {
+    total += e.amount;
+    expenseTable.innerHTML += `
+      <tr>
+        <td>${e.date}</td>
+        <td><span class="badge bg-secondary">${e.type}</span></td>
+        <td class="text-danger"><strong>${e.amount.toFixed(3)}</strong></td>
+        <td><button onclick="deleteExpense(${i})" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
+      </tr>`;
+  });
+  document.getElementById("expenseTotal").textContent = total.toFixed(3);
+}
+
+function deleteExpense(i) {
+  if (confirm("هل تريد حذف هذا المصروف؟")) {
+    expenses.splice(i, 1);
+    saveExpenses();
+    renderExpenses();
+    showNotification("تم حذف المصروف بنجاح");
+  }
+}
+
+function printClientReport() {
+  const c = clients[selectedClientIndex];
+  const now = new Date().toLocaleString("ar-KW");
+  let html = `
+    <div style="text-align:center; font-family: 'Cairo', Tahoma, sans-serif;">
+      <h2 style="color: #667eea; margin-bottom: 10px;">🕌 شركة الحجيج لحجز الفنادق والعمرة</h2>
+      <h4 style="color: #333; margin-bottom: 20px;">📄 تقرير العميل: ${c.name}</h4>
+      <p style="color: #666; margin-bottom: 30px;">${now}</p>
+      <hr style="border: 2px solid #667eea; margin: 20px 0;">
+      
+      <h5 style="color: #764ba2; margin: 20px 0;">العمليات</h5>
+      <table border="1" width="100%" style="border-collapse:collapse; text-align:center; margin-bottom: 30px;">
+        <tr style="background: #667eea; color: white;">
+          <th style="padding: 10px;">التاريخ</th>
+          <th style="padding: 10px;">الجوازات</th>
+          <th style="padding: 10px;">السعر</th>
+          <th style="padding: 10px;">الإجمالي</th>
+          <th style="padding: 10px;">المدفوع</th>
+          <th style="padding: 10px;">المتبقي</th>
+          <th style="padding: 10px;">طريقة الدفع</th>
+        </tr>`;
+
+  let total = 0, paid = 0, count = 0;
+  c.operations.forEach(op => {
+    total += op.total;
+    paid += op.paid;
+    count += op.count;
+    html += `<tr style="padding: 8px;">
+      <td style="padding: 8px;">${op.date}</td>
+      <td style="padding: 8px;">${op.count}</td>
+      <td style="padding: 8px;">${op.price.toFixed(3)}</td>
+      <td style="padding: 8px; font-weight: bold;">${op.total.toFixed(3)}</td>
+      <td style="padding: 8px; color: green;">${op.paid.toFixed(3)}</td>
+      <td style="padding: 8px; color: red;">${op.remain.toFixed(3)}</td>
+      <td style="padding: 8px;">${op.method}</td>
+    </tr>`;
+  });
+
+  html += `</table>
+    
+    <h5 style="color: #f093fb; margin: 20px 0;">💰 دفعات إضافية</h5>
+    <table border="1" width="100%" style="border-collapse:collapse; text-align:center; margin-bottom: 30px;">
+      <tr style="background: #f093fb; color: white;">
+        <th style="padding: 10px;">التاريخ</th>
+        <th style="padding: 10px;">المبلغ</th>
+        <th style="padding: 10px;">طريقة الدفع</th>
+      </tr>`;
+      
+  let extra = 0;
+  (c.payments || []).forEach(p => {
+    html += `<tr>
+      <td style="padding: 8px;">${p.date}</td>
+      <td style="padding: 8px; color: green; font-weight: bold;">${p.amount.toFixed(3)}</td>
+      <td style="padding: 8px;">${p.method}</td>
+    </tr>`;
+    extra += p.amount;
+  });
+
+  const totalPaid = paid + extra;
+  const remain = total - totalPaid;
+
+  html += `</table>
+    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin: 20px 0;">
+      <h4 style="margin-bottom: 15px;">ملخص الحساب</h4>
+      <p style="margin: 5px 0;"><strong>عدد الجوازات:</strong> ${count}</p>
+      <p style="margin: 5px 0;"><strong>إجمالي المبلغ:</strong> ${total.toFixed(3)} د.ك</p>
+      <p style="margin: 5px 0;"><strong>إجمالي المدفوع:</strong> ${totalPaid.toFixed(3)} د.ك</p>
+      <p style="margin: 5px 0;"><strong>المبلغ المتبقي:</strong> ${remain.toFixed(3)} د.ك</p>
+    </div>
+    
+    <hr style="border: 2px solid #667eea; margin: 30px 0;">
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+      <p style="margin: 5px 0; color: #333;"><strong>📍 العنوان:</strong> خيطان - مجمع المباركي - مقابل مستوصف العصيمي</p>
+      <p style="margin: 5px 0; color: #333;"><strong>📞 الهاتف:</strong> 66842225 - 99719079</p>
+      <p style="margin: 15px 0; color: #667eea; font-weight: bold;">شكراً لثقتكم بنا</p>
+    </div>
+    </div>`;
+
+  const win = window.open('', '', 'width=800,height=800');
+  win.document.write(`<html><head><meta charset="UTF-8"><title>تقرير العميل</title></head><body dir="rtl">${html}</body></html>`);
+  win.document.close(); 
+  win.print();
+}
+
+function printExpensesReport() {
+  const now = new Date().toLocaleString("ar-KW");
+  let html = `
+    <div style="text-align:center; font-family: 'Cairo', Tahoma, sans-serif;">
+      <h2 style="color: #667eea;">🕌 شركة الحجيج لحجز الفنادق والعمرة</h2>
+      <h4 style="color: #333;">📄 تقرير المصروفات</h4>
+      <p style="color: #666;">${now}</p>
+      <hr style="border: 2px solid #667eea; margin: 20px 0;">
+      
+      <table border="1" width="100%" style="border-collapse:collapse; text-align:center; margin: 20px 0;">
+        <tr style="background: #ff6b6b; color: white;">
+          <th style="padding: 10px;">التاريخ</th>
+          <th style="padding: 10px;">نوع المصروف</th>
+          <th style="padding: 10px;">المبلغ (د.ك)</th>
+        </tr>`;
+
+  let total = 0;
+  expenses.forEach(e => {
+    total += e.amount;
+    html += `<tr>
+      <td style="padding: 8px;">${e.date}</td>
+      <td style="padding: 8px;">${e.type}</td>
+      <td style="padding: 8px; color: red; font-weight: bold;">${e.amount.toFixed(3)}</td>
+    </tr>`;
+  });
+
+  html += `</table>
+    <div style="background: linear-gradient(135deg, #ff6b6b, #feca57); color: white; padding: 20px; border-radius: 15px; margin: 20px 0;">
+      <h4>إجمالي المصروفات: ${total.toFixed(3)} د.ك</h4>
+    </div>
+    
+    <hr style="border: 2px solid #667eea; margin: 30px 0;">
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+      <p style="color: #333;"><strong>📍 العنوان:</strong> خيطان - مجمع المباركي - مقابل مستوصف العصيمي</p>
+      <p style="color: #333;"><strong>📞 الهاتف:</strong> 66842225 - 99719079</p>
+    </div>
+    </div>`;
+
+  const win = window.open('', '', 'width=800,height=800');
+  win.document.write(`<html><head><meta charset="UTF-8"><title>تقرير المصروفات</title></head><body dir="rtl">${html}</body></html>`);
+  win.document.close(); 
+  win.print();
+}
+
+function printClientsWithBalance() {
+  const now = new Date().toLocaleString("ar-KW");
+  let html = `
+    <div style="text-align:center; font-family: 'Cairo', Tahoma, sans-serif;">
+      <h2 style="color: #667eea;">🕌 شركة الحجيج لحجز الفنادق والعمرة</h2>
+      <h4 style="color: #333;">📋 تقرير العملاء المتأخرين في السداد</h4>
+      <p style="color: #666;">${now}</p>
+      <hr style="border: 2px solid #667eea; margin: 20px 0;">
+      
+      <table border="1" width="100%" style="border-collapse:collapse; text-align:center; margin: 20px 0;">
+        <tr style="background: #fa709a; color: white;">
+          <th style="padding: 10px;">اسم العميل</th>
+          <th style="padding: 10px;">رقم الهاتف</th>
+          <th style="padding: 10px;">المبلغ المتبقي (د.ك)</th>
+        </tr>`;
+
+  let totalPending = 0;
+  clients.forEach(c => {
+    const total = c.operations.reduce((s, o) => s + o.total, 0);
+    const paid = c.operations.reduce((s, o) => s + o.paid, 0) + (c.payments || []).reduce((s, p) => s + p.amount, 0);
+    const remain = total - paid;
+    if (remain > 0) {
+      totalPending += remain;
+      html += `<tr>
+        <td style="padding: 8px; font-weight: bold;">${c.name}</td>
+        <td style="padding: 8px;">${c.phone}</td>
+        <td style="padding: 8px; color: red; font-weight: bold;">${remain.toFixed(3)}</td>
+      </tr>`;
+    }
+  });
+
+  html += `</table>
+    <div style="background: linear-gradient(135deg, #fa709a, #fee140); color: white; padding: 20px; border-radius: 15px; margin: 20px 0;">
+      <h4>إجمالي المبالغ المتأخرة: ${totalPending.toFixed(3)} د.ك</h4>
+    </div>
+    
+    <hr style="border: 2px solid #667eea; margin: 30px 0;">
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+      <p style="color: #333;"><strong>📍 العنوان:</strong> خيطان - مجمع المباركي - مقابل مستوصف العصيمي</p>
+      <p style="color: #333;"><strong>📞 الهاتف:</strong> 66842225 - 99719079</p>
+    </div>
+    </div>`;
+
+  const win = window.open('', '', 'width=800,height=800');
+  win.document.write(`<html><head><meta charset="UTF-8"><title>العملاء المتأخرين</title></head><body dir="rtl">${html}</body></html>`);
+  win.document.close(); 
+  win.print();
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// تشغيل عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("addClientBtn").addEventListener("click", addClient);
+  renderClients();
+  renderExpenses();
+  updateStats();
+  
+  // تعيين التاريخ الحالي
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('expenseDate').value = today;
+  document.getElementById('operationDate').value = today;
+  document.getElementById('paymentDate').value = today;
+  
+  // إضافة تأثيرات للأزرار
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px) scale(1.02)';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+  
+  showNotification("مرحباً بك في نظام إدارة شركة الحجيج");
+});
+</script>
+</body>
+</html>
